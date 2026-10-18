@@ -1,0 +1,135 @@
+/* ==========================================================================
+   PAGE TRANSITIONS  (see src/js/components/page-transitions.js)
+   The overlay is always dark so every transition feels cinematic in both themes.
+   ========================================================================== */
+
+.pt {
+  --pt-bg: #0d0a07;
+  --pt-bg-2: #17110b;
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  overflow: hidden;
+  pointer-events: none;
+}
+.pt.is-blocking {
+  pointer-events: auto;
+}
+
+/* Every panel shape is a dark block; GSAP moves / scales them */
+.pt > i {
+  position: absolute;
+  background: var(--pt-bg);
+  will-change: transform;
+}
+
+/* shutter + doors: two halves */
+.pt--shutter > i:nth-child(1) {
+  inset: 0 0 50% 0;
+}
+.pt--shutter > i:nth-child(2) {
+  inset: 50% 0 0 0;
+  background: var(--pt-bg-2);
+}
+.pt--doors > i:nth-child(1) {
+  inset: 0 50% 0 0;
+}
+.pt--doors > i:nth-child(2) {
+  inset: 0 0 0 50%;
+  background: var(--pt-bg-2);
+}
+/* 1px overlap so no hairline shows where the halves meet */
+.pt--shutter > i,
+.pt--doors > i {
+  outline: 1px solid var(--pt-bg);
+}
+
+/* bars: six vertical shutters */
+.pt--bars > i {
+  top: 0;
+  bottom: 0;
+  width: calc(100% / 6 + 1px);
+}
+.pt--bars > i:nth-child(1) { left: 0; }
+.pt--bars > i:nth-child(2) { left: calc(100% / 6); background: var(--pt-bg-2); }
+.pt--bars > i:nth-child(3) { left: calc(200% / 6); }
+.pt--bars > i:nth-child(4) { left: calc(300% / 6); background: var(--pt-bg-2); }
+.pt--bars > i:nth-child(5) { left: calc(400% / 6); }
+.pt--bars > i:nth-child(6) { left: calc(500% / 6); background: var(--pt-bg-2); }
+
+/* tiles: 8 x 5 grid */
+.pt--tiles {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+.pt--tiles > i {
+  position: relative;
+}
+.pt--tiles > i:nth-child(odd) {
+  background: var(--pt-bg-2);
+}
+
+/* slant: five skewed panels that overlap into one solid sheet */
+.pt--slant > i {
+  top: -5%;
+  bottom: -5%;
+  width: 30%;
+}
+.pt--slant > i:nth-child(1) { left: -8%; }
+.pt--slant > i:nth-child(2) { left: 14%; background: var(--pt-bg-2); }
+.pt--slant > i:nth-child(3) { left: 36%; }
+.pt--slant > i:nth-child(4) { left: 58%; background: var(--pt-bg-2); }
+.pt--slant > i:nth-child(5) { left: 80%; width: 36%; }
+
+/* iris: one full sheet revealed through a circular clip-path */
+.pt--iris > i {
+  inset: 0;
+  background: radial-gradient(120% 120% at 50% 50%, var(--pt-bg-2), var(--pt-bg));
+}
+
+/* ---------- Centre label ---------- */
+.pt__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  text-align: center;
+  padding: 1rem;
+}
+.pt__label small {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #e5a93b;
+}
+.pt__label strong {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.8rem, 10vw, 7.5rem);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #fff3d1 0%, #ffd782 40%, #e5a93b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.pt__label em {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.6vw, 1.8rem);
+  color: #b8ae9c;
+}
+.pt__line {
+  display: block;
+  width: min(140px, 30vw);
+  height: 2px;
+  margin-top: 0.6rem;
+  background: linear-gradient(90deg, transparent, #e5a93b, transparent);
+  transform-origin: left;
+}

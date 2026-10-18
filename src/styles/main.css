@@ -1,0 +1,10 @@
+/* Single stylesheet entry — linked from every page via the "head" partial. */
+@import './base.css';
+@import './components.css';
+@import './page-transitions.css';
+@import './home.css';
+@import './menu.css';
+@import './gallery.css';
+@import './faqs.css';
+@import './about.css';
+@import './contact.css';

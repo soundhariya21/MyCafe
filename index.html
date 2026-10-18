@@ -1,164 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MY.CAFÉ | Artisanal Experience</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .hero-wrapper {
-      position: relative;
-      z-index: 2;
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 3rem 2.5rem 5rem;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 4rem;
-      align-items: center;
-      min-height: calc(100vh - 150px);
-    }
-    .hero-main-title {
-      font-size: 4rem;
-      line-height: 1.05;
-      font-weight: 900;
-      margin-bottom: 1.25rem;
-      color: #fff;
-    }
-    .hero-subtext {
-      color: #9c9588;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      max-width: 520px;
-      margin-bottom: 2.2rem;
-    }
-    .hero-btn-row { display: flex; gap: 1.25rem; margin-bottom: 3.5rem; }
-    .hero-stats {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .stat-number { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; color: #fff; }
-    .stat-label { font-size: 0.75rem; color: #837c70; text-transform: uppercase; }
-    .stat-line { width: 1px; height: 35px; background: rgba(255,255,255,0.1); }
-    .main-visual-card {
-      position: relative;
-      height: 520px;
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7);
-    }
-    .hero-img { width: 100%; height: 100%; object-fit: cover; }
-    .floating-badge {
-      position: absolute;
-      background: rgba(20, 18, 15, 0.75);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 18px;
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .badge-top { top: 25px; right: 15px; }
-    .badge-bottom { bottom: 30px; left: 15px; }
-    .marquee-strip {
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
-      background: rgba(255,255,255,0.02);
-      padding: 1rem 0;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    .marquee-track {
-      display: inline-block;
-      animation: marquee 25s linear infinite;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 0.25em;
-      color: rgba(255,255,255,0.5);
-      font-size: 0.85rem;
-    }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-    @media (max-width: 992px) {
-      .hero-wrapper { grid-template-columns: 1fr; }
-      .hero-main-title { font-size: 3rem; }
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <!--@include head-->
+    <title>MY.CAFÉ | Slow-Brewed Coffee &amp; Artisanal Bakery</title>
+    <meta
+      name="description"
+      content="MY.CAFÉ — slow-extracted filter coffee, micro-lot roasts and wild sourdough, baked fresh every morning. Reserve your table today."
+    />
+  </head>
+  <body data-page="home">
+    <!--@include shell-->
+    <!--@include navbar-->
 
-  <div class="glow-sphere sphere-top"></div>
-  <div class="glow-sphere sphere-bottom"></div>
+    <main id="main">
+      <!-- ============ HERO ============ -->
+      <section class="hero">
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <span class="pill" data-hero-in><i class="pulse"></i> Slow drip &amp; artisanal bakery</span>
+            <h1 class="display hero__title" data-split="lines" data-split-manual>
+              Crafted<br />
+              <span class="text-gold">Patience</span><br />
+              in every cup.
+            </h1>
+            <p class="lead" data-hero-in>
+              Experience slow-extracted decoctions, micro-batch roasts and warm, flaky crusts baked fresh every single
+              morning — in a space designed for lingering.
+            </p>
+            <div class="hero__actions" data-hero-in>
+              <a href="menu.html" class="btn btn-gold" data-magnetic>Explore menu <span class="arrow">↗</span></a>
+              <a href="gallery.html" class="btn btn-ghost" data-magnetic>Watch reel</a>
+            </div>
+            <dl class="hero__stats" data-hero-in>
+              <div>
+                <dt>Estate beans</dt>
+                <dd><span data-count="100" data-suffix="%">100%</span></dd>
+              </div>
+              <div>
+                <dt>Cold brew steep</dt>
+                <dd><span data-count="24" data-suffix="hr">24hr</span></dd>
+              </div>
+              <div>
+                <dt>Guest rating</dt>
+                <dd><span data-count="4.9" data-decimals="1" data-suffix=" ★">4.9 ★</span></dd>
+              </div>
+            </dl>
+          </div>
 
-  <nav class="navbar">
-    <a href="index.html" class="logo luxury-title">MY<span>.</span>CAFÉ</a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">HOME</a></li>
-      <li><a href="menu.html">MENU</a></li>
-      <li><a href="gallery.html">GALLERY</a></li>
-      <li><a href="faqs.html">FAQS</a></li>
-      <li><a href="about.html">ABOUT</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
-    </ul>
-    <a href="contact.html" class="nav-cta">BOOK TABLE</a>
-  </nav>
-
-  <section class="hero-wrapper">
-    <div>
-      <div class="live-pill"><span class="pulse"></span> SLOW DRIP & ARTISANAL BAKERY</div>
-      <h1 class="hero-main-title luxury-title">
-        CRAFTED<br/>
-        <span class="gold-gradient-text">PATIENCE</span><br/>
-        IN EVERY CUP.
-      </h1>
-      <p class="hero-subtext">Experience slow-extracted decoctions, micro-batch roasts, and warm flaky crusts baked fresh every single morning.</p>
-      <div class="hero-btn-row">
-        <a href="menu.html" class="btn-glow-gold">EXPLORE MENU ↗</a>
-        <a href="gallery.html" class="btn-glass-hollow">WATCH REEL</a>
-      </div>
-      <div class="hero-stats">
-        <div><div class="stat-number">100%</div><div class="stat-label">Estate Beans</div></div>
-        <div class="stat-line"></div>
-        <div><div class="stat-number">24hr</div><div class="stat-label">Cold Brew Steep</div></div>
-        <div class="stat-line"></div>
-        <div><div class="stat-number">4.9 ★</div><div class="stat-label">Guest Rating</div></div>
-      </div>
-    </div>
-
-    <div>
-      <div class="main-visual-card" data-tilt>
-        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80" alt="Specialty Brew" class="hero-img" />
-        <div class="floating-badge badge-top">
-          <span style="font-size: 1.4rem;">☕</span>
-          <div><strong style="color: #fff; font-size: 0.85rem;">Single Origin</strong><br/><small style="color: #9c9588; font-size: 0.7rem;">Coorg Arabica Roast</small></div>
+          <div class="hero__visual" data-hero-visual>
+            <div class="hero__card" data-tilt>
+              <img
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80"
+                alt="Hands holding three freshly poured cups of coffee with latte art"
+                class="hero__img"
+                fetchpriority="high"
+              />
+              <div class="float-badge float-badge--top" data-float>
+                <span class="float-badge__icon">☕</span>
+                <div><strong>Single origin</strong><small>Coorg Arabica roast</small></div>
+              </div>
+              <div class="float-badge float-badge--bottom" data-float>
+                <span class="float-badge__price">₹190</span>
+                <div><strong>Kaapi Nitro Cold</strong><small>Daily fresh batch</small></div>
+              </div>
+            </div>
+            <svg class="hero__ring" data-ring viewBox="0 0 200 200" aria-hidden="true">
+              <defs><path id="ring-path" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0" /></defs>
+              <text>
+                <textPath href="#ring-path">SLOW BREWED • SINCE 2019 • HAND CRAFTED •</textPath>
+              </text>
+              <circle cx="100" cy="100" r="30" />
+              <text class="ring-center" x="100" y="108" text-anchor="middle">☕</text>
+            </svg>
+          </div>
         </div>
-        <div class="floating-badge badge-bottom">
-          <div style="background: #e5a93b; color: #080706; font-weight: 800; padding: 6px 10px; border-radius: 8px;">₹190</div>
-          <div><strong style="color: #fff; font-size: 0.85rem;">Nitro Cold Foam</strong><br/><small style="color: #9c9588; font-size: 0.7rem;">Daily Fresh Batch</small></div>
+        <a class="hero__scroll" href="#story-strip" aria-label="Scroll down"><span></span>Scroll</a>
+      </section>
+
+      <!-- ============ MARQUEE ============ -->
+      <div class="marquee" data-marquee data-speed="55" id="story-strip" aria-hidden="true">
+        <div class="marquee__track">
+          <div class="marquee__item">
+            <span>Slow extracted decoction</span><i>✦</i><span>Wild sourdough</span><i>✦</i><span>Handmade croissants</span
+            ><i>✦</i><span>Nitro cold brew</span><i>✦</i><span>Micro-lot roasts</span><i>✦</i>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <div class="marquee-strip">
-    <div class="marquee-track">
-      SLOW EXTRACTED DECOCTION • WILD SOURDOUGH • HANDMADE CROISSANTS • NITRO COLD BREW • SLOW EXTRACTED DECOCTION • WILD SOURDOUGH • HANDMADE CROISSANTS • NITRO COLD BREW •
-    </div>
-  </div>
+      <!-- ============ NUMBERS ============ -->
+      <section class="section numbers">
+        <div class="container">
+          <div class="numbers__grid" data-stagger>
+            <div class="number-card card">
+              <strong data-count="48" data-suffix="hr">48hr</strong>
+              <span>Sourdough fermentation</span>
+            </div>
+            <div class="number-card card">
+              <strong data-count="12000" data-suffix="+">12,000+</strong>
+              <span>Cups poured every month</span>
+            </div>
+            <div class="number-card card">
+              <strong data-count="4" data-suffix=" estates">4 estates</strong>
+              <span>Sourced directly in South India</span>
+            </div>
+            <div class="number-card card">
+              <strong data-count="38">38</strong>
+              <span>Fresh bakes out of the oven daily</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <footer>
-    <p>© 2026 My Café. All rights reserved.</p>
-  </footer>
+      <!-- ============ SIGNATURE PICKS ============ -->
+      <section class="section section--alt">
+        <div class="container">
+          <div class="section-head">
+            <span class="pill">Signature picks</span>
+            <h2 class="h2" data-split>Four things you <em class="accent">must</em> try</h2>
+            <p class="lead" data-reveal>
+              Our regulars’ favourites — the drinks and bakes that put MY.CAFÉ on the map. Prices include GST.
+            </p>
+          </div>
+          <div class="featured-grid" data-featured></div>
+          <div class="center-row" data-reveal>
+            <a href="menu.html" class="btn btn-ghost" data-magnetic>See the full menu <span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </section>
 
-  <script src="script.js"></script>
-</body>
+      <!-- ============ PROCESS (pinned horizontal scroll on desktop) ============ -->
+      <section class="process" data-process>
+        <div class="process__pin" data-process-pin>
+          <div class="container process__head">
+            <span class="pill">The ritual</span>
+            <h2 class="h2" data-split>From <em class="accent">bean</em> to cup</h2>
+          </div>
+
+          <div class="process__track" data-process-track>
+            <article class="process__panel card">
+              <div class="process__img"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=80" alt="Roasted coffee beans" loading="lazy" /></div>
+              <div class="process__body">
+                <span class="process__num">01</span>
+                <h3 class="h3">Source</h3>
+                <p>
+                  We buy directly from four shade-grown estates in Coorg, Chikmagalur, Araku and Wayanad — paying above
+                  fair-trade price for the best micro-lots of the harvest.
+                </p>
+                <ul class="process__meta"><li>Single estate</li><li>Shade grown</li><li>Hand picked</li></ul>
+              </div>
+            </article>
+
+            <article class="process__panel card">
+              <div class="process__img"><img src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?auto=format&fit=crop&w=900&q=80" alt="Coffee roaster at work" loading="lazy" /></div>
+              <div class="process__body">
+                <span class="process__num">02</span>
+                <h3 class="h3">Roast</h3>
+                <p>
+                  Small 5 kg batches on our in-house roaster, profiled by hand and cupped every morning so each lot
+                  shows off its own character instead of tasting “roasty”.
+                </p>
+                <ul class="process__meta"><li>Micro-batch</li><li>Profiled by hand</li><li>Cupped daily</li></ul>
+              </div>
+            </article>
+
+            <article class="process__panel card">
+              <div class="process__img"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=80" alt="Barista pour-over brewing" loading="lazy" /></div>
+              <div class="process__body">
+                <span class="process__num">03</span>
+                <h3 class="h3">Brew</h3>
+                <p>
+                  Gravity-filtered decoction drips through brass for hours; our cold brew steeps for 24. Precise
+                  temperature, precise water, and plenty of patience.
+                </p>
+                <ul class="process__meta"><li>Slow drip</li><li>93°C water</li><li>24hr cold steep</li></ul>
+              </div>
+            </article>
+
+            <article class="process__panel card">
+              <div class="process__img"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="Freshly baked sourdough loaves" loading="lazy" /></div>
+              <div class="process__body">
+                <span class="process__num">04</span>
+                <h3 class="h3">Bake</h3>
+                <p>
+                  The ovens fire up at 4 AM. Sourdough from a six-year-old starter, croissants laminated over three days,
+                  and cardamom buns that rarely last past ten.
+                </p>
+                <ul class="process__meta"><li>Wild yeast</li><li>Hand laminated</li><li>Baked at 4 AM</li></ul>
+              </div>
+            </article>
+
+            <article class="process__panel card">
+              <div class="process__img"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=900&q=80" alt="Barista pouring latte art" loading="lazy" /></div>
+              <div class="process__body">
+                <span class="process__num">05</span>
+                <h3 class="h3">Serve</h3>
+                <p>
+                  Finally, a cup placed in front of you — unhurried, at the right temperature, with a story about where
+                  it came from if you want one. Stay as long as you like.
+                </p>
+                <ul class="process__meta"><li>Unhurried</li><li>Your name on the cup</li><li>Free refills of water</li></ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="process__progress" aria-hidden="true"><i data-process-bar></i></div>
+        </div>
+      </section>
+
+      <!-- ============ STORY TEASER ============ -->
+      <section class="section">
+        <div class="container story">
+          <div class="story__media" data-reveal="left" data-cursor-label="Our story">
+            <div class="story__img"><img data-parallax="10" src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=1000&q=80" alt="Inside MY.CAFÉ with the espresso bar and pendant lights" loading="lazy" /></div>
+            <div class="story__stamp card" data-float>
+              <strong>Since</strong>
+              <span>2019</span>
+            </div>
+          </div>
+          <div class="story__copy">
+            <span class="pill" data-reveal>Our philosophy</span>
+            <h2 class="h2" data-split>Rooted in tradition, <span class="text-gold">refined for today</span></h2>
+            <p class="lead" data-reveal>
+              MY.CAFÉ was created to honour the slow-drip rituals of South Indian filter decoction — and to marry that
+              warmth with artisanal pastry and sourdough craft.
+            </p>
+            <p class="muted" data-reveal>
+              Every morning begins before sunrise: decoctions steeping drop by drop, loaves baking until golden and
+              crackling. No rush. No shortcuts. Just good things made slowly.
+            </p>
+            <div data-reveal>
+              <a href="about.html" class="link-arrow">Read our story <span>→</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TESTIMONIALS ============ -->
+      <section class="section section--alt">
+        <div class="container">
+          <div class="section-head section-head--center">
+            <span class="pill">Kind words</span>
+            <h2 class="h2" data-split>Loved by <em class="accent">regulars</em></h2>
+          </div>
+          <div class="testimonials" data-testimonials data-reveal="scale">
+            <div class="testimonials__stage" data-t-stage></div>
+            <div class="testimonials__controls">
+              <button type="button" class="round-btn" data-t-prev aria-label="Previous testimonial">←</button>
+              <div class="dots" data-t-dots></div>
+              <button type="button" class="round-btn" data-t-next aria-label="Next testimonial">→</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ REEL ROWS ============ -->
+      <section class="section reel">
+        <div class="container section-head section-head--center">
+          <span class="pill">Behind the bar</span>
+          <h2 class="h2" data-split>A feed worth <em class="accent">scrolling</em></h2>
+        </div>
+        <div class="reel__row" data-scroll-row="-1">
+          <img src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=600&q=70" alt="Beans and coffee" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?auto=format&fit=crop&w=600&q=70" alt="Fresh croissants" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=70" alt="Iced coffee" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=70" alt="Café interior" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=70" alt="Chocolate cake" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=600&q=70" alt="Latte art from above" loading="lazy" />
+        </div>
+        <div class="reel__row" data-scroll-row="1">
+          <img src="https://images.unsplash.com/photo-1495214783159-3503fd1b572d?auto=format&fit=crop&w=600&q=70" alt="Berry french toast" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=600&q=70" alt="Café seating" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=70" alt="Cookies" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=70" alt="Espresso tools" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=70" alt="Avocado egg toast" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?auto=format&fit=crop&w=600&q=70" alt="Espresso in glass" loading="lazy" />
+        </div>
+        <div class="center-row" data-reveal>
+          <a href="gallery.html" class="btn btn-ghost" data-magnetic>Open the gallery <span class="arrow">↗</span></a>
+        </div>
+      </section>
+
+      <!-- ============ CTA ============ -->
+      <section class="section" style="padding-top: 0">
+        <div class="container">
+          <div class="cta" data-reveal="scale">
+            <span class="pill">Open Tue – Sun · 7 AM – 10 PM</span>
+            <h2 class="h2">Save a corner <em class="accent">for yourself</em></h2>
+            <p class="lead">Window seat, garden patio or the communal table — tell us when and we will have a cup waiting.</p>
+            <div class="cta__actions">
+              <a href="contact.html#reserve" class="btn btn-gold" data-magnetic>Reserve a table <span class="arrow">↗</span></a>
+              <a href="menu.html" class="btn btn-ghost" data-magnetic>Browse the menu</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--@include footer-->
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
 </html>

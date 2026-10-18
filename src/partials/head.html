@@ -1,0 +1,29 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0b0907" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+<!-- Apply the saved / system theme BEFORE first paint so there is no light/dark flash -->
+<script>
+  (function () {
+    var d = document.documentElement;
+    var theme = null;
+    try { theme = localStorage.getItem('mycafe-theme'); } catch (e) {}
+    if (theme !== 'light' && theme !== 'dark') {
+      theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    d.setAttribute('data-theme', theme);
+    d.classList.toggle('dark', theme === 'dark'); // class used by the React theme toggle
+    d.classList.add('js');
+    // Full intro loader only on the first page of a visit; later pages use the per-page transition
+    try { if (sessionStorage.getItem('mycafe-visited')) d.classList.add('visited'); } catch (e) {}
+    // Arriving through a page transition: CSS hides the page behind a dark cover until the reveal plays
+    try { if (sessionStorage.getItem('mycafe-pt')) d.classList.add('pt-arrive'); } catch (e) {}
+  })();
+</script>
+<link rel="stylesheet" href="/src/styles/main.css" />

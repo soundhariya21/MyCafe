@@ -1,115 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery | MY.CAFÉ</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .gallery-wrap { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; position: relative; z-index: 2; }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .gallery-tile {
-      position: relative;
-      height: 340px;
-      border-radius: 20px;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .gallery-tile img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .gallery-tile:hover img {
-      transform: scale(1.08);
-    }
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(8, 7, 6, 0.9) 0%, transparent 60%);
-      opacity: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 1.5rem;
-      transition: opacity 0.3s ease;
-    }
-    .gallery-tile:hover .gallery-overlay {
-      opacity: 1;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <!--@include head-->
+    <title>Gallery | MY.CAFÉ</title>
+    <meta
+      name="description"
+      content="A visual feed from MY.CAFÉ — slow pours, fresh bakes, quiet mornings and the roastery behind the scenes."
+    />
+  </head>
+  <body data-page="gallery">
+    <!--@include shell-->
+    <!--@include navbar-->
 
-  <div class="glow-sphere sphere-top"></div>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <span class="pill" data-reveal><i class="pulse"></i> Reel &amp; ambience clips</span>
+          <h1 class="display" data-split>The visual <em class="accent">feed</em></h1>
+          <p class="lead" data-reveal>
+            Twelve frames from the bar, the oven and the quiet corners of our space. Tap any photo to view it full
+            size — use the arrow keys to browse.
+          </p>
+          <p class="crumbs" data-reveal><a href="index.html">Home</a> / <span>Gallery</span></p>
+        </div>
+      </section>
 
-  <nav class="navbar">
-    <a href="index.html" class="logo luxury-title">MY<span>.</span>CAFÉ</a>
-    <ul class="nav-links">
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="menu.html">MENU</a></li>
-      <li><a href="gallery.html" class="active">GALLERY</a></li>
-      <li><a href="faqs.html">FAQS</a></li>
-      <li><a href="about.html">ABOUT</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
-    </ul>
-    <a href="contact.html" class="nav-cta">BOOK TABLE</a>
-  </nav>
+      <section class="section" style="padding-top: 1rem">
+        <div class="container">
+          <div class="chips gallery-filters" data-reveal data-gallery-filters role="tablist" aria-label="Gallery categories">
+            <button type="button" class="chip is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button type="button" class="chip" data-filter="coffee" role="tab" aria-selected="false">Coffee</button>
+            <button type="button" class="chip" data-filter="bakes" role="tab" aria-selected="false">Bakes</button>
+            <button type="button" class="chip" data-filter="space" role="tab" aria-selected="false">The space</button>
+          </div>
+          <div class="gallery-grid" data-gallery-grid></div>
+        </div>
+      </section>
 
-  <div class="gallery-wrap">
-    <div style="text-align: center;">
-      <div class="live-pill"><span class="pulse"></span> REEL & AMBIENCE CLIPS</div>
-      <h1 class="luxury-title" style="font-size: 3rem;">THE VISUAL FEED</h1>
+      <!-- Big scrolling statement -->
+      <div class="marquee marquee--big" data-marquee data-speed="80" aria-hidden="true">
+        <div class="marquee__track">
+          <div class="marquee__item">
+            <span>Pour</span><i>✦</i><span>Steep</span><i>✦</i><span>Bake</span><i>✦</i><span>Linger</span><i>✦</i>
+          </div>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+          <div class="cta" data-reveal="scale">
+            <span class="pill">@mycafe.in</span>
+            <h2 class="h2">Tag us, we <em class="accent">repost</em></h2>
+            <p class="lead">Snapped something lovely at MY.CAFÉ? Share it with #MyCafeMoments and it might land on our wall.</p>
+            <div class="cta__actions">
+              <a href="https://instagram.com" target="_blank" rel="noopener" class="btn btn-gold" data-magnetic>Follow on Instagram <span class="arrow">↗</span></a>
+              <a href="contact.html#reserve" class="btn btn-ghost" data-magnetic>Visit us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" data-lightbox role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
+      <button type="button" class="lightbox__close" data-lb-close aria-label="Close viewer">✕</button>
+      <button type="button" class="lightbox__nav lightbox__nav--prev" data-lb-prev aria-label="Previous photo">←</button>
+      <figure class="lightbox__figure">
+        <img data-lb-img src="" alt="" />
+        <figcaption>
+          <span class="lightbox__tag" data-lb-tag></span>
+          <strong data-lb-title></strong>
+          <small data-lb-count></small>
+        </figcaption>
+      </figure>
+      <button type="button" class="lightbox__nav lightbox__nav--next" data-lb-next aria-label="Next photo">→</button>
     </div>
 
-    <div class="gallery-grid">
-      <div class="gallery-tile glass-card" data-tilt>
-        <img src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=700&q=80" alt="Slow pour">
-        <div class="gallery-overlay">
-          <span style="font-size: 0.75rem; color: var(--accent-gold); text-transform: uppercase;">Rituals</span>
-          <h3 class="luxury-title">Slow Drip Extraction</h3>
-        </div>
-      </div>
-
-      <div class="gallery-tile glass-card" data-tilt>
-        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80" alt="Cardamom bake">
-        <div class="gallery-overlay">
-          <span style="font-size: 0.75rem; color: var(--accent-gold); text-transform: uppercase;">Oven Daily</span>
-          <h3 class="luxury-title">Flaky Cardamom Crust</h3>
-        </div>
-      </div>
-
-      <div class="gallery-tile glass-card" data-tilt>
-        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80" alt="Nitro Brew">
-        <div class="gallery-overlay">
-          <span style="font-size: 0.75rem; color: var(--accent-gold); text-transform: uppercase;">Cold Bar</span>
-          <h3 class="luxury-title">Velvet Nitrogen Cascade</h3>
-        </div>
-      </div>
-
-      <div class="gallery-tile glass-card" data-tilt>
-        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=700&q=80" alt="Espresso Bar">
-        <div class="gallery-overlay">
-          <span style="font-size: 0.75rem; color: var(--accent-gold); text-transform: uppercase;">Atmosphere</span>
-          <h3 class="luxury-title">Quiet Morning Light</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>© 2026 My Café. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+    <!--@include footer-->
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
 </html>

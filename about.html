@@ -1,85 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | MY.CAFÉ</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .about-wrap { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; position: relative; z-index: 2; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
-    .about-img-box { height: 460px; border-radius: 24px; overflow: hidden; border: 1px solid var(--border-subtle); }
-    .about-img-box img { width: 100%; height: 100%; object-fit: cover; }
-    .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
-    .pillar-card { padding: 2rem; border-radius: 20px; }
-    @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } }
-  </style>
-</head>
-<body>
+  <head>
+    <!--@include head-->
+    <title>About Us | MY.CAFÉ</title>
+    <meta
+      name="description"
+      content="The story, people and philosophy behind MY.CAFÉ — a slow-coffee and sourdough café rooted in South Indian filter-coffee tradition."
+    />
+  </head>
+  <body data-page="about">
+    <!--@include shell-->
+    <!--@include navbar-->
 
-  <div class="glow-sphere sphere-top"></div>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <span class="pill" data-reveal><i class="pulse"></i> Our heritage &amp; craft</span>
+          <h1 class="display" data-split>The <em class="accent">philosophy</em></h1>
+          <p class="lead" data-reveal>
+            A small café with a long memory — built on patient extraction, honest ingredients and the belief that the
+            best things should never be rushed.
+          </p>
+          <p class="crumbs" data-reveal><a href="index.html">Home</a> / <span>About</span></p>
+        </div>
+      </section>
 
-  <nav class="navbar">
-    <a href="index.html" class="logo luxury-title">MY<span>.</span>CAFÉ</a>
-    <ul class="nav-links">
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="menu.html">MENU</a></li>
-      <li><a href="gallery.html">GALLERY</a></li>
-      <li><a href="faqs.html">FAQS</a></li>
-      <li><a href="about.html" class="active">ABOUT</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
-    </ul>
-    <a href="contact.html" class="nav-cta">BOOK TABLE</a>
-  </nav>
+      <!-- ============ STORY ============ -->
+      <section class="section" style="padding-top: 2rem">
+        <div class="container about-split">
+          <div class="about-copy">
+            <h2 class="h2" data-split>Rooted in tradition, <span class="text-gold">refined for today</span></h2>
+            <p class="lead" data-reveal>
+              MY.CAFÉ was created to honour the authentic slow-drip rituals of South Indian filter decoction, marrying
+              traditional warmth with artisanal pastry and sourdough craft.
+            </p>
+            <p class="muted" data-reveal>
+              Every morning begins before sunrise — slow decoctions steeping drop by drop, and sourdough loaves baking
+              until golden brown and crackling. We started with twelve seats and one grinder in 2019. Today we roast our
+              own beans, bake our own bread and still know most of our guests by name.
+            </p>
+            <blockquote class="about-quote" data-reveal>
+              “A good cup is not made fast. It is made <em class="accent">well</em>.”
+              <cite>— Aarav Menon, founder</cite>
+            </blockquote>
+          </div>
+          <div class="about-media" data-reveal="right">
+            <div class="about-media__img card" data-tilt>
+              <img data-parallax="9" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=80" alt="Barista performing a slow pour-over" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <div class="about-wrap">
-    <div style="text-align: center;">
-      <div class="live-pill"><span class="pulse"></span> OUR HERITAGE & CRAFT</div>
-      <h1 class="luxury-title" style="font-size: 3rem;">THE PHILOSOPHY</h1>
-    </div>
+      <!-- ============ NUMBERS ============ -->
+      <section class="section section--alt about-numbers">
+        <div class="container">
+          <div class="numbers__grid" data-stagger>
+            <div class="number-card card"><strong data-count="7" data-suffix=" yrs">7 yrs</strong><span>Serving the neighbourhood</span></div>
+            <div class="number-card card"><strong data-count="4">4</strong><span>Partner estates</span></div>
+            <div class="number-card card"><strong data-count="26">26</strong><span>Team members</span></div>
+            <div class="number-card card"><strong data-count="480" data-suffix=" kg">480 kg</strong><span>Beans roasted a week</span></div>
+          </div>
+        </div>
+      </section>
 
-    <div class="about-grid">
-      <div>
-        <h2 class="luxury-title" style="font-size: 2rem; margin-bottom: 1.5rem;">Rooted in Tradition, <br/><span class="gold-gradient-text">Refined for Today</span></h2>
-        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
-          MY.CAFÉ was created to honor the authentic slow-drip rituals of South Indian filter decoction, marrying traditional warmth with artisanal pastry and sourdough craft.
-        </p>
-        <p style="color: var(--text-secondary); line-height: 1.8;">
-          Every morning begins before sunrise—slow decoctions steeping drop by drop, and sourdough loaves baking until golden brown and crackling.
-        </p>
-      </div>
+      <!-- ============ TIMELINE ============ -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head section-head--center">
+            <span class="pill">Our journey</span>
+            <h2 class="h2" data-split>Seven years, <em class="accent">slowly</em></h2>
+          </div>
+          <div class="timeline" data-timeline>
+            <div class="timeline__line" aria-hidden="true"><i data-timeline-line></i></div>
+          </div>
+        </div>
+      </section>
 
-      <div class="glass-card about-img-box" data-tilt>
-        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80" alt="Barista pour" />
-      </div>
-    </div>
+      <!-- ============ VALUES ============ -->
+      <section class="section section--alt">
+        <div class="container">
+          <div class="section-head section-head--center">
+            <span class="pill">What we stand for</span>
+            <h2 class="h2" data-split>Six <em class="accent">promises</em></h2>
+          </div>
+          <div class="values" data-values data-stagger></div>
+        </div>
+      </section>
 
-    <div class="pillars-grid">
-      <div class="glass-card pillar-card">
-        <span style="font-size: 1.8rem; display: block; margin-bottom: 1rem;">🌱</span>
-        <h3 class="luxury-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Micro-Lot Sourcing</h3>
-        <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">Direct estate-sourced Arabica beans from shade-grown slopes.</p>
-      </div>
-      <div class="glass-card pillar-card">
-        <span style="font-size: 1.8rem; display: block; margin-bottom: 1rem;">⏳</span>
-        <h3 class="luxury-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Slow Extraction</h3>
-        <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">Precision temperature control and gravity-filtered patience.</p>
-      </div>
-      <div class="glass-card pillar-card">
-        <span style="font-size: 1.8rem; display: block; margin-bottom: 1rem;">✨</span>
-        <h3 class="luxury-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Sensory Space</h3>
-        <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">A modern moody haven designed for intimate talks and peaceful pauses.</p>
-      </div>
-    </div>
-  </div>
+      <!-- ============ ORIGINS ============ -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="pill">Where it grows</span>
+            <h2 class="h2" data-split>Four estates, <em class="accent">one</em> standard</h2>
+            <p class="lead" data-reveal>
+              We visit every partner farm each harvest, pay above fair-trade price and publish the lot details of every
+              bag we sell.
+            </p>
+          </div>
+          <div class="origins" data-origins data-stagger></div>
+        </div>
+      </section>
 
-  <footer>
-    <p>© 2026 My Café. All rights reserved.</p>
-  </footer>
+      <!-- ============ TEAM ============ -->
+      <section class="section section--alt">
+        <div class="container">
+          <div class="section-head section-head--center">
+            <span class="pill">The people</span>
+            <h2 class="h2" data-split>Hands behind <em class="accent">the cup</em></h2>
+          </div>
+          <div class="team" data-team data-stagger></div>
+        </div>
+      </section>
 
-  <script src="script.js"></script>
-</body>
+      <section class="section">
+        <div class="container">
+          <div class="cta" data-reveal="scale">
+            <span class="pill">Come say hello</span>
+            <h2 class="h2">Pull up a <em class="accent">chair</em></h2>
+            <p class="lead">The best way to understand MY.CAFÉ is to sit with a cup for an hour. We saved you a seat.</p>
+            <div class="cta__actions">
+              <a href="contact.html#reserve" class="btn btn-gold" data-magnetic>Reserve a table <span class="arrow">↗</span></a>
+              <a href="menu.html" class="btn btn-ghost" data-magnetic>See the menu</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--@include footer-->
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
 </html>

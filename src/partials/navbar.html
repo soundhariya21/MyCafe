@@ -1,0 +1,41 @@
+<header class="navbar" data-navbar>
+  <a class="logo" href="index.html" aria-label="MY.CAFÉ – home">MY<span>.</span>CAFÉ</a>
+
+  <nav class="nav-links" aria-label="Primary" data-nav-tabs>
+    <!-- Replaced by the React <NavTabs /> (src/components/layout/nav-tabs.tsx); this list is the no-JS fallback -->
+    <ul>
+      <li><a href="index.html" data-nav>Home</a></li>
+      <li><a href="menu.html" data-nav>Menu</a></li>
+      <li><a href="gallery.html" data-nav>Gallery</a></li>
+      <li><a href="faqs.html" data-nav>FAQs</a></li>
+      <li><a href="about.html" data-nav>About</a></li>
+      <li><a href="contact.html" data-nav>Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="nav-actions">
+    <span class="theme-toggle-host" data-theme-toggle-host></span>
+    <a class="btn btn-gold btn-sm nav-cta" href="contact.html#reserve" data-magnetic>Book table</a>
+    <button class="burger" type="button" data-burger aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" data-mobile-menu aria-hidden="true">
+  <nav aria-label="Mobile">
+    <ul>
+      <li><a href="index.html" data-nav><small>01</small>Home</a></li>
+      <li><a href="menu.html" data-nav><small>02</small>Menu</a></li>
+      <li><a href="gallery.html" data-nav><small>03</small>Gallery</a></li>
+      <li><a href="faqs.html" data-nav><small>04</small>FAQs</a></li>
+      <li><a href="about.html" data-nav><small>05</small>About</a></li>
+      <li><a href="contact.html" data-nav><small>06</small>Contact</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu__foot">
+    <p>12/4 Artisanal Lane, Heritage Block</p>
+    <p>Tue – Sun · 7 AM – 10 PM</p>
+    <p>hello@mycafe.in</p>
+  </div>
+</div>

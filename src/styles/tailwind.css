@@ -1,0 +1,16 @@
+/* Tailwind for the React islands only.
+   Preflight (the global reset) is intentionally NOT imported: the site already
+   ships its own reset in base.css and Tailwind's would restyle every page. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* Map the shadcn-style colour names used by the React components (border-border, bg-background, text-foreground…)
+   onto the site's own theme variables from base.css, so they follow the light / dark theme automatically. */
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-border: var(--border-strong);
+  --color-muted: var(--surface-hover);
+  --color-ring: var(--accent);
+}

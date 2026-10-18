@@ -1,101 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact & Reservations | MY.CAFÉ</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .contact-wrap { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; position: relative; z-index: 2; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; margin-top: 3rem; }
-    .info-tile { padding: 1.5rem; border-radius: 18px; margin-bottom: 1.25rem; }
-    .info-tile h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-gold); margin-bottom: 0.5rem; }
-    .info-tile p { color: var(--text-main); font-size: 0.95rem; line-height: 1.6; }
-    .form-panel { padding: 2.5rem; border-radius: 24px; }
-    .form-group { margin-bottom: 1.5rem; }
-    .form-group label { display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.5rem; }
-    .form-input {
-      width: 100%;
-      padding: 0.9rem 1.2rem;
-      background: rgba(8, 7, 6, 0.75);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      color: #fff;
-      font-family: inherit;
-      font-size: 0.9rem;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-    .form-input:focus { border-color: var(--accent-gold); }
-    @media (max-width: 850px) { .contact-grid { grid-template-columns: 1fr; } }
-  </style>
-</head>
-<body>
+  <head>
+    <!--@include head-->
+    <title>Contact &amp; Reservations | MY.CAFÉ</title>
+    <meta
+      name="description"
+      content="Reserve a table at MY.CAFÉ, find our address and opening hours, or get in touch about private events and bulk bean orders."
+    />
+  </head>
+  <body data-page="contact">
+    <!--@include shell-->
+    <!--@include navbar-->
 
-  <div class="glow-sphere sphere-bottom"></div>
-
-  <nav class="navbar">
-    <a href="index.html" class="logo luxury-title">MY<span>.</span>CAFÉ</a>
-    <ul class="nav-links">
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="menu.html">MENU</a></li>
-      <li><a href="gallery.html">GALLERY</a></li>
-      <li><a href="faqs.html">FAQS</a></li>
-      <li><a href="about.html">ABOUT</a></li>
-      <li><a href="contact.html" class="active">CONTACT</a></li>
-    </ul>
-    <a href="contact.html" class="nav-cta">BOOK TABLE</a>
-  </nav>
-
-  <div class="contact-wrap">
-    <div style="text-align: center;">
-      <div class="live-pill"><span class="pulse"></span> CONNECT & RESERVE</div>
-      <h1 class="luxury-title" style="font-size: 3rem;">FIND YOUR CORNER</h1>
-    </div>
-
-    <div class="contact-grid">
-      <div>
-        <div class="glass-card info-tile">
-          <h4>Address</h4>
-          <p>12/4 Artisanal Lane, Heritage Block,<br/>Opposite Green Boulevard</p>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <span class="pill" data-reveal><i class="pulse"></i> Connect &amp; reserve</span>
+          <h1 class="display" data-split>Find your <em class="accent">corner</em></h1>
+          <p class="lead" data-reveal>
+            Book a table, ask about private events, or just tell us what you think. We read every message.
+          </p>
+          <p class="crumbs" data-reveal><a href="index.html">Home</a> / <span>Contact</span></p>
         </div>
-        <div class="glass-card info-tile">
-          <h4>Hours of Pour</h4>
-          <p>Tuesday — Sunday: 07:00 AM — 10:00 PM<br/>Mondays: Closed for Roasting</p>
+      </section>
+
+      <section class="section" style="padding-top: 1rem">
+        <div class="container contact-grid">
+          <!-- ===== Info column ===== -->
+          <div class="contact-info" data-stagger>
+            <div class="card info-tile">
+              <span class="info-tile__icon" aria-hidden="true">📍</span>
+              <div>
+                <h3>Address</h3>
+                <p>12/4 Artisanal Lane, Heritage Block,<br />Opposite Green Boulevard, Bengaluru 560001</p>
+              </div>
+            </div>
+
+            <div class="card info-tile info-tile--col">
+              <div class="hours-head">
+                <h3>Hours of pour</h3>
+                <span class="open-status" data-open-status><i></i><span>Checking…</span></span>
+              </div>
+              <table class="hours" data-hours>
+                <tbody>
+                  <tr data-day="2"><th>Tuesday</th><td>7:00 AM – 10:00 PM</td></tr>
+                  <tr data-day="3"><th>Wednesday</th><td>7:00 AM – 10:00 PM</td></tr>
+                  <tr data-day="4"><th>Thursday</th><td>7:00 AM – 10:00 PM</td></tr>
+                  <tr data-day="5"><th>Friday</th><td>7:00 AM – 10:00 PM</td></tr>
+                  <tr data-day="6"><th>Saturday</th><td>7:00 AM – 10:00 PM</td></tr>
+                  <tr data-day="0"><th>Sunday</th><td>7:00 AM – 10:00 PM</td></tr>
+                  <tr data-day="1" class="is-closed"><th>Monday</th><td>Closed for roasting</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card info-tile">
+              <span class="info-tile__icon" aria-hidden="true">✉️</span>
+              <div>
+                <h3>Direct reach</h3>
+                <p>
+                  <a href="mailto:hello@mycafe.in">hello@mycafe.in</a><br />
+                  <a href="tel:+919876543210">+91 98765 43210</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="card info-tile">
+              <span class="info-tile__icon" aria-hidden="true">🎉</span>
+              <div>
+                <h3>Private events</h3>
+                <p>Birthdays, tastings and small offsites for up to 30 guests. Mention it in your note — we will write back within a day.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== Reservation form ===== -->
+          <div class="card form-panel" id="reserve" data-reveal="right">
+            <div class="form-head">
+              <span class="pill">Reservations</span>
+              <h2 class="h2">Reserve a <em class="accent">table</em></h2>
+              <p class="muted">Tables are held for 15 minutes. For groups over 10, please email us.</p>
+            </div>
+
+            <form class="reserve-form" data-reserve-form novalidate>
+              <div class="form-row">
+                <div class="field">
+                  <label for="r-name">Full name</label>
+                  <input class="input" id="r-name" name="name" type="text" placeholder="Your name" autocomplete="name" required minlength="2" />
+                  <span class="field-error" data-error-for="name"></span>
+                </div>
+                <div class="field">
+                  <label for="r-phone">Phone</label>
+                  <input class="input" id="r-phone" name="phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel" required />
+                  <span class="field-error" data-error-for="phone"></span>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="r-email">Email</label>
+                <input class="input" id="r-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+                <span class="field-error" data-error-for="email"></span>
+              </div>
+
+              <div class="form-row form-row--3">
+                <div class="field">
+                  <label for="r-date">Date</label>
+                  <input class="input" id="r-date" name="date" type="date" required data-date />
+                  <span class="field-error" data-error-for="date"></span>
+                </div>
+                <div class="field">
+                  <label for="r-time">Time</label>
+                  <select class="input" id="r-time" name="time" required data-time>
+                    <option value="">Select…</option>
+                  </select>
+                  <span class="field-error" data-error-for="time"></span>
+                </div>
+                <div class="field">
+                  <label for="r-guests">Guests</label>
+                  <select class="input" id="r-guests" name="guests" required>
+                    <option value="1">1 guest</option>
+                    <option value="2" selected>2 guests</option>
+                    <option value="3">3 guests</option>
+                    <option value="4">4 guests</option>
+                    <option value="5">5 guests</option>
+                    <option value="6">6 guests</option>
+                    <option value="7">7 guests</option>
+                    <option value="8">8 guests</option>
+                    <option value="9">9 guests</option>
+                    <option value="10">10 guests</option>
+                  </select>
+                </div>
+              </div>
+
+              <fieldset class="field seating">
+                <legend>Seating preference</legend>
+                <div class="chips">
+                  <label class="chip-radio"><input type="radio" name="seating" value="Window bar" /><span>Window bar</span></label>
+                  <label class="chip-radio"><input type="radio" name="seating" value="Garden patio" /><span>Garden patio</span></label>
+                  <label class="chip-radio"><input type="radio" name="seating" value="Communal table" /><span>Communal table</span></label>
+                  <label class="chip-radio"><input type="radio" name="seating" value="No preference" checked /><span>No preference</span></label>
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <label for="r-note">Anything we should know?</label>
+                <textarea class="input" id="r-note" name="note" rows="3" placeholder="Occasion, allergies, high chair, a surprise…"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-gold btn-block" data-magnetic>
+                <span data-submit-label>Confirm reservation</span> <span class="arrow">↗</span>
+              </button>
+              <p class="form-fine muted">By reserving you agree to be contacted about this booking only.</p>
+            </form>
+
+            <!-- Shown after a successful submit -->
+            <div class="reserve-done" data-reserve-done hidden>
+              <span class="reserve-done__check" aria-hidden="true">
+                <svg viewBox="0 0 52 52" width="64" height="64" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="26" cy="26" r="23" data-check-circle /><path d="M15 27l8 8 14-16" data-check-mark /></svg>
+              </span>
+              <h2 class="h2">You are <em class="accent">booked</em></h2>
+              <p class="muted" data-done-text></p>
+              <dl class="done-summary" data-done-summary></dl>
+              <button type="button" class="btn btn-ghost btn-sm" data-reserve-again>Make another reservation</button>
+            </div>
+          </div>
         </div>
-        <div class="glass-card info-tile">
-          <h4>Direct Reach</h4>
-          <p>hello@mycafe.in<br/>+91 98765 43210</p>
+      </section>
+
+      <!-- ============ MAP ============ -->
+      <section class="section" style="padding-top: 0">
+        <div class="container">
+          <div class="map card" data-reveal="scale">
+            <iframe
+              title="Map showing the MY.CAFÉ location in Bengaluru"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=77.585%2C12.965%2C77.625%2C12.99&amp;layer=mapnik&amp;marker=12.9776%2C77.6046"
+            ></iframe>
+            <a class="map__link btn btn-gold btn-sm" href="https://www.openstreetmap.org/?mlat=12.9776&amp;mlon=77.6046#map=15/12.9776/77.6046" target="_blank" rel="noopener">Open in maps ↗</a>
+          </div>
         </div>
-      </div>
+      </section>
+    </main>
 
-      <div class="glass-card form-panel">
-        <form onsubmit="event.preventDefault(); alert('Reservation requested! We will reach out shortly.');">
-          <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" class="form-input" placeholder="Your name" required />
-          </div>
-          <div class="form-group">
-            <label>Phone / Email</label>
-            <input type="text" class="form-input" placeholder="Contact number or email" required />
-          </div>
-          <div class="form-group">
-            <label>Reservation Note</label>
-            <textarea class="form-input" rows="3" placeholder="Number of guests, date, and preferred time..."></textarea>
-          </div>
-          <button type="submit" class="btn-glow-gold" style="width: 100%;">CONFIRM RESERVATION</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>© 2026 My Café. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+    <!--@include footer-->
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
 </html>
