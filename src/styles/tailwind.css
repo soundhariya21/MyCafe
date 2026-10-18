@@ -5,6 +5,9 @@
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
 
+/* The admin panel is a separate app with its own styles — do not scan it for Tailwind classes */
+@source not "../../admin";
+
 /* Map the shadcn-style colour names used by the React components (border-border, bg-background, text-foreground…)
    onto the site's own theme variables from base.css, so they follow the light / dark theme automatically. */
 @theme inline {

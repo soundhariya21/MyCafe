@@ -2,9 +2,11 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { $, $$, escapeHtml, reducedMotion } from '../utils.js';
-import { faqs, faqCategories } from '../data/content.js';
+import { faqCategories } from '../data/content.js';
+import { loadContent } from '../data/remote.js';
 
-export function init() {
+export async function init() {
+  const { faqs } = await loadContent();
   const list = $('[data-faq-list]');
   const cats = $('[data-faq-cats]');
   const search = $('[data-faq-search]');
@@ -103,6 +105,6 @@ export function init() {
 
   count.textContent = `${items.length} answers`;
   // open the first question by default so the page doesn't look empty
-  requestAnimationFrame(() => setOpen(items[0], true));
+  if (items[0]) requestAnimationFrame(() => setOpen(items[0], true));
   return null;
 }

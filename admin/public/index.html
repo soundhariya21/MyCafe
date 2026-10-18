@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Admin | MY.CAFÉ</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b0907'/%3E%3Cpath d='M16 26h28v10a12 12 0 0 1-12 12h-4a12 12 0 0 1-12-12V26z' fill='%23e5a93b'/%3E%3Cpath d='M44 29h3a5 5 0 0 1 0 10h-3' fill='none' stroke='%23e5a93b' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/admin.css" />
+  </head>
+  <body>
+    <div class="glow glow--a" aria-hidden="true"></div>
+    <div class="glow glow--b" aria-hidden="true"></div>
+
+    <noscript><p style="padding: 2rem; text-align: center">The admin panel needs JavaScript. Please enable it.</p></noscript>
+
+    <!-- ===== Login ===== -->
+    <section class="login" id="login" hidden>
+      <div class="login__theme"><button class="sm-toggle" type="button" data-theme-toggle title="Toggle theme"></button></div>
+      <form class="login__card" id="login-form" autocomplete="on">
+        <a class="logo" href="/"><span class="logo__word">MY<span>.</span>CAFÉ</span></a>
+        <h1>Admin panel</h1>
+        <div class="field">
+          <label for="password">Password</label>
+          <input class="input" id="password" name="password" type="password" autocomplete="current-password" required autofocus />
+        </div>
+        <p class="login__error" id="login-error" role="alert"></p>
+        <button class="btn btn-gold" type="submit" id="login-submit">Log in</button>
+        <p class="login__warn" id="login-warn" hidden>
+          ⚠ This server is still using the default password <b>admin123</b>. Set the <code>ADMIN_PASSWORD</code> environment variable before hosting it online.
+        </p>
+      </form>
+    </section>
+
+    <!-- ===== App ===== -->
+    <div id="app" hidden>
+      <header class="navbar">
+        <a class="logo" href="#/menu"><span class="logo__word">MY<span>.</span>CAFÉ</span><span class="pill">Admin</span></a>
+        <nav class="nav-links" id="nav" aria-label="Sections"></nav>
+        <div class="nav-actions">
+          <span class="status" id="status" aria-live="polite"></span>
+          <button class="btn btn-ghost btn-sm" type="button" id="discard" hidden>Discard</button>
+          <button class="btn btn-gold btn-sm" type="button" id="publish" disabled>Publish changes</button>
+          <a class="btn btn-ghost btn-sm" id="view-site" target="_blank" rel="noopener" hidden>View site ↗</a>
+          <button class="sm-toggle" type="button" data-theme-toggle title="Toggle theme"></button>
+          <button class="btn btn-ghost btn-sm" type="button" id="logout">Log out</button>
+        </div>
+      </header>
+
+      <main id="main" tabindex="-1"></main>
+
+      <footer class="footer">
+        <span>MY.CAFÉ admin · changes are saved only when you press <b>Publish</b></span>
+        <span><button class="btn btn-ghost btn-sm" type="button" id="export">Download backup (JSON)</button></span>
+      </footer>
+    </div>
+
+    <div class="toast-wrap" id="toasts" aria-live="polite"></div>
+    <script type="module" src="/js/app.js"></script>
+  </body>
+</html>

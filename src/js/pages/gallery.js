@@ -2,10 +2,11 @@
 import { gsap } from 'gsap';
 import { Flip } from 'gsap/Flip';
 import { $, $$, escapeHtml, reducedMotion } from '../utils.js';
-import { galleryItems } from '../data/content.js';
+import { loadContent } from '../data/remote.js';
 import { initTilt } from '../components/interactions.js';
 
-export function init() {
+export async function init() {
+  const { gallery: galleryItems } = await loadContent();
   const grid = $('[data-gallery-grid]');
   const filters = $('[data-gallery-filters]');
 
@@ -13,9 +14,9 @@ export function init() {
     .map(
       (item, i) => `
       <button type="button" class="g-tile card ${item.size ? `g-tile--${item.size}` : ''}" data-index="${i}" data-cat="${item.cat}" data-flip-id="g${i}" data-cursor-label="View" aria-label="View ${escapeHtml(item.title)}">
-        <img src="${item.src}" alt="${escapeHtml(item.title)}" loading="lazy" />
+        <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.title)}" loading="lazy" />
         <span class="g-tile__overlay">
-          <small>${escapeHtml(item.tag)}</small>
+          <small>${escapeHtml(item.tag ?? '')}</small>
           <strong>${escapeHtml(item.title)}</strong>
         </span>
       </button>`
@@ -49,12 +50,12 @@ export function init() {
     }
   });
 
-  initLightbox(tiles);
+  initLightbox(tiles, galleryItems);
   initTilt(grid);
   return null;
 }
 
-function initLightbox(tiles) {
+function initLightbox(tiles, galleryItems) {
   const box = $('[data-lightbox]');
   const img = $('[data-lb-img]', box);
   const title = $('[data-lb-title]', box);

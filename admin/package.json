@@ -1,0 +1,21 @@
+{
+  "name": "mycafe-admin",
+  "version": "1.0.0",
+  "description": "Admin panel + content API for the MY.CAFÉ website (deploy separately from the public site)",
+  "private": true,
+  "type": "module",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node scripts/seed.mjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^4.22.3",
+    "multer": "^2.4.0"
+  }
+}

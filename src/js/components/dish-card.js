@@ -23,7 +23,7 @@ export function dishCard(item) {
       `${item.name} ${item.desc} ${item.notes}`.toLowerCase()
     )}">
       <div class="dish__img">
-        <img src="${item.image}" alt="${escapeHtml(item.name)}" loading="lazy" />
+        <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" />
         <div class="dish__tags">${tags}</div>
       </div>
       <div class="dish__body">

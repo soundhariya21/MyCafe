@@ -151,3 +151,13 @@ export const origins = [
   { name: 'Araku Valley', alt: '1,000 m', note: 'Tribal-farmed Arabica. Sweet, fruity, soft acidity.' },
   { name: 'Wayanad', alt: '900 m', note: 'Robusta in small lots. Bold, chocolatey, full-bodied.' },
 ];
+
+// Contact details + opening hours (editable from the admin panel). Keys of `hours` are JS weekdays: 0 = Sunday … 6 = Saturday.
+const OPEN = { closed: false, open: '07:00', close: '22:00' };
+export const defaultSettings = {
+  address: '12/4 Artisanal Lane, Heritage Block,\nOpposite Green Boulevard, Bengaluru 560001',
+  phone: '+91 98765 43210',
+  email: 'hello@mycafe.in',
+  closedNote: 'Mondays: closed for roasting',
+  hours: { 0: OPEN, 1: { ...OPEN, closed: true }, 2: OPEN, 3: OPEN, 4: OPEN, 5: OPEN, 6: OPEN },
+};

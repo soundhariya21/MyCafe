@@ -3,11 +3,13 @@ import { gsap } from 'gsap';
 import { Flip } from 'gsap/Flip';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { $, $$, escapeHtml, reducedMotion } from '../utils.js';
-import { menuItems, categories, pairings, roasts } from '../data/menu.js';
+import { categories } from '../data/menu.js';
+import { loadContent } from '../data/remote.js';
 import { dishCard } from '../components/dish-card.js';
 import { initTilt } from '../components/interactions.js';
 
-export function init() {
+export async function init() {
+  const { menu: menuItems, pairings, roasts } = await loadContent();
   const grid = $('[data-menu-grid]');
   const filters = $('[data-menu-filters]');
   const search = $('[data-menu-search]');

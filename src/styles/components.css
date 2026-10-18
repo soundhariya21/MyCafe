@@ -785,3 +785,8 @@ textarea.input {
     top: 1.4rem;
   }
 }
+
+/* Text filled from the admin settings: keep the line breaks the admin typed in the address */
+[data-bind='address'] {
+  white-space: pre-line;
+}

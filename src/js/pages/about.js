@@ -1,10 +1,12 @@
 // About page: timeline (scroll-drawn line), values, origins and team rendered from data.
 import { gsap } from 'gsap';
 import { $, $$, escapeHtml, reducedMotion } from '../utils.js';
-import { timeline, values, origins, team } from '../data/content.js';
+import { loadContent } from '../data/remote.js';
 import { initTilt } from '../components/interactions.js';
 
-export function init() {
+export async function init() {
+  const { timeline, values, origins, team } = await loadContent();
+
   // ---- timeline ----
   const wrap = $('[data-timeline]');
   wrap.insertAdjacentHTML(

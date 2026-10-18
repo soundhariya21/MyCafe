@@ -2,15 +2,15 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { $, $$, escapeHtml, reducedMotion } from '../utils.js';
-import { menuItems } from '../data/menu.js';
-import { testimonials } from '../data/content.js';
+import { loadContent } from '../data/remote.js';
 import { dishCard } from '../components/dish-card.js';
 import { splitReveal } from '../animations/reveal.js';
 
-export function init() {
-  renderFeatured();
+export async function init() {
+  const content = await loadContent();
+  renderFeatured(content.menu);
   initProcess();
-  initTestimonials();
+  initTestimonials(content.testimonials);
   const enter = initHero();
   initFloaters();
   return enter;
@@ -56,10 +56,12 @@ function initFloaters() {
 }
 
 /* ---------- Featured dishes ---------- */
-function renderFeatured() {
+function renderFeatured(menuItems) {
   const grid = $('[data-featured]');
   if (!grid) return;
-  grid.innerHTML = menuItems.filter((i) => i.featured).map(dishCard).join('');
+  // Items ticked “Show on Home page” in the admin; if none are ticked, show the first four dishes
+  const featured = menuItems.filter((i) => i.featured);
+  grid.innerHTML = (featured.length ? featured : menuItems.slice(0, 4)).map(dishCard).join('');
   grid.setAttribute('data-stagger', 'up');
 }
 
@@ -98,9 +100,13 @@ function initProcess() {
 }
 
 /* ---------- Testimonials carousel ---------- */
-function initTestimonials() {
+function initTestimonials(testimonials) {
   const root = $('[data-testimonials]');
   if (!root) return;
+  if (!testimonials.length) {
+    root.closest('section')?.remove(); // no testimonials -> hide the whole section
+    return;
+  }
   const stage = $('[data-t-stage]', root);
   const dotsWrap = $('[data-t-dots]', root);
 

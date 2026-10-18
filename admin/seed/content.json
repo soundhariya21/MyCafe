@@ -1,0 +1,627 @@
+{
+  "menu": [
+    {
+      "name": "Brass Filter Kaapi",
+      "category": "brews",
+      "price": 140,
+      "desc": "Traditional high-roasted blend dripped slowly through brass, finished with velvety whole-milk froth.",
+      "notes": "Cocoa · Jaggery · Roasted nuts",
+      "tags": [
+        "signature",
+        "veg"
+      ],
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=800&q=80",
+      "id": "brass-filter"
+    },
+    {
+      "name": "Velvet Flat White",
+      "category": "brews",
+      "price": 170,
+      "desc": "A double ristretto of our house espresso with silky microfoam, poured by hand.",
+      "notes": "Caramel · Dark chocolate",
+      "tags": [
+        "veg"
+      ],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80",
+      "id": "flat-white"
+    },
+    {
+      "name": "Single-Origin Pour Over",
+      "category": "brews",
+      "price": 220,
+      "desc": "Today’s micro-lot, brewed to order on a V60. Ask the barista what is on the bar.",
+      "notes": "Stone fruit · Jasmine · Honey",
+      "tags": [
+        "new",
+        "vegan"
+      ],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80",
+      "id": "pour-over"
+    },
+    {
+      "name": "Cardamom Masala Latte",
+      "category": "brews",
+      "price": 190,
+      "desc": "Espresso, steamed milk and a house spice blend of stone-crushed cardamom, cinnamon and clove.",
+      "notes": "Warm spice · Cream",
+      "tags": [
+        "veg",
+        "spicy"
+      ],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+      "id": "spiced-latte"
+    },
+    {
+      "name": "Kaapi Nitro Cold",
+      "category": "cold",
+      "price": 190,
+      "desc": "Slow-extracted chicory blend infused with nitrogen micro-foam. Poured like a stout, drunk like silk.",
+      "notes": "Dark cocoa · Smooth · Cascading",
+      "tags": [
+        "signature",
+        "vegan"
+      ],
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80",
+      "id": "kaapi-nitro"
+    },
+    {
+      "name": "24-Hour Cold Brew",
+      "category": "cold",
+      "price": 180,
+      "desc": "Coarse-ground Arabica steeped in filtered water for a full day. Naturally sweet, never bitter.",
+      "notes": "Brown sugar · Citrus zest",
+      "tags": [
+        "vegan",
+        "gf"
+      ],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1559496417-e7f25cb247f3?auto=format&fit=crop&w=800&q=80",
+      "id": "cold-brew"
+    },
+    {
+      "name": "Cold Brew Tonic & Lime",
+      "category": "cold",
+      "price": 210,
+      "desc": "Sparkling Indian tonic, a shot of cold brew, fresh lime and a sprig of mint. Our summer favourite.",
+      "notes": "Bright · Bittersweet · Fizzy",
+      "tags": [
+        "new",
+        "vegan"
+      ],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80",
+      "id": "tonic"
+    },
+    {
+      "name": "Spiced Cardamom Bun",
+      "category": "bakes",
+      "price": 160,
+      "desc": "Flaky laminated dough rolled with freshly stone-crushed cardamom and brown sugar, baked golden.",
+      "notes": "Buttery · Fragrant",
+      "tags": [
+        "signature",
+        "veg"
+      ],
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80",
+      "id": "cardamom-bun"
+    },
+    {
+      "name": "Butter Croissant",
+      "category": "bakes",
+      "price": 150,
+      "desc": "Three days of lamination, 27 layers, and a shattering crust. Best eaten within the hour.",
+      "notes": "Crisp · Honeycomb crumb",
+      "tags": [
+        "veg"
+      ],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1530610476181-d83430b64dcd?auto=format&fit=crop&w=800&q=80",
+      "id": "croissant"
+    },
+    {
+      "name": "Single-Origin Chocolate Cake",
+      "category": "bakes",
+      "price": 240,
+      "desc": "Dense, dark and glossy — made with 70% bean-to-bar chocolate and a splash of our espresso.",
+      "notes": "Fudgy · Espresso · Sea salt",
+      "tags": [
+        "veg"
+      ],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
+      "id": "choc-cake"
+    },
+    {
+      "name": "Brown Butter Cookies",
+      "category": "bakes",
+      "price": 120,
+      "desc": "Crisp edges, gooey centres. Brown butter, dark chocolate chunks and flaky salt.",
+      "notes": "Toffee · Salted",
+      "tags": [
+        "veg"
+      ],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=80",
+      "id": "cookies"
+    },
+    {
+      "name": "Wild Sourdough Toast",
+      "category": "brunch",
+      "price": 210,
+      "desc": "48-hour fermented rustic loaf served with churned grass-fed butter and seasonal preserve.",
+      "notes": "Tangy · Crusty",
+      "tags": [
+        "signature",
+        "veg"
+      ],
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
+      "id": "sourdough"
+    },
+    {
+      "name": "Smashed Avocado & Egg",
+      "category": "brunch",
+      "price": 340,
+      "desc": "Sourdough, smashed avocado, a slow-cooked egg, chilli flakes and lime.",
+      "notes": "Creamy · Zesty",
+      "tags": [
+        "veg",
+        "spicy"
+      ],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
+      "id": "egg-toast"
+    },
+    {
+      "name": "Berry Brioche French Toast",
+      "category": "brunch",
+      "price": 320,
+      "desc": "Custard-soaked brioche, seasonal berries, whipped mascarpone and maple.",
+      "notes": "Sweet · Tart berries",
+      "tags": [
+        "new",
+        "veg"
+      ],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1495214783159-3503fd1b572d?auto=format&fit=crop&w=800&q=80",
+      "id": "french-toast"
+    },
+    {
+      "name": "The Slow Brunch Board",
+      "category": "brunch",
+      "price": 590,
+      "desc": "A sharing board of mini waffles, fruit, eggs, pastries and two drinks. Made for lazy Sundays.",
+      "notes": "Sharing · Serves two",
+      "tags": [
+        "veg"
+      ],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=80",
+      "id": "brunch-board"
+    }
+  ],
+  "pairings": [
+    {
+      "drink": "Brass Filter Kaapi",
+      "bake": "Spiced Cardamom Bun",
+      "why": "Jaggery sweetness meets warm spice — a South Indian breakfast classic, reimagined.",
+      "id": "3g55tzko"
+    },
+    {
+      "drink": "Kaapi Nitro Cold",
+      "bake": "Single-Origin Chocolate Cake",
+      "why": "Cocoa on cocoa. The nitro foam cuts through the richness of the ganache.",
+      "id": "6a4rj492"
+    },
+    {
+      "drink": "Single-Origin Pour Over",
+      "bake": "Butter Croissant",
+      "why": "A clean, floral cup lets the butter and crisp lamination sing.",
+      "id": "cjdagprt"
+    }
+  ],
+  "roasts": [
+    {
+      "name": "Coorg Light",
+      "origin": "Coorg, Karnataka",
+      "notes": "Jasmine · Stone fruit",
+      "body": 40,
+      "acidity": 80,
+      "roast": 25,
+      "id": "xr9kajae"
+    },
+    {
+      "name": "Chikmagalur Medium",
+      "origin": "Baba Budan Giri",
+      "notes": "Caramel · Hazelnut",
+      "body": 65,
+      "acidity": 55,
+      "roast": 55,
+      "id": "4xwud813"
+    },
+    {
+      "name": "Mysore Nuggets Dark",
+      "origin": "Mysuru, Karnataka",
+      "notes": "Cocoa · Smoked sugar",
+      "body": 90,
+      "acidity": 30,
+      "roast": 85,
+      "id": "crtnufte"
+    }
+  ],
+  "gallery": [
+    {
+      "src": "https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=900&q=80",
+      "title": "Slow Drip Extraction",
+      "tag": "Rituals",
+      "cat": "coffee",
+      "size": "tall",
+      "id": "0ntrbqf3"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=80",
+      "title": "Flaky Cardamom Crust",
+      "tag": "Oven Daily",
+      "cat": "bakes",
+      "size": "",
+      "id": "qozrotlm"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=900&q=80",
+      "title": "Latte Art, Poured Twice",
+      "tag": "Bar",
+      "cat": "coffee",
+      "size": "wide",
+      "id": "4a6r3zq3"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80",
+      "title": "Quiet Morning Light",
+      "tag": "Atmosphere",
+      "cat": "space",
+      "size": "",
+      "id": "9x7w4wy9"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=80",
+      "title": "Velvet Nitrogen Cascade",
+      "tag": "Cold Bar",
+      "cat": "coffee",
+      "size": "tall",
+      "id": "5dgow1x4"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80",
+      "title": "Wild Sourdough",
+      "tag": "48 Hours",
+      "cat": "bakes",
+      "size": "",
+      "id": "3khii9sy"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?auto=format&fit=crop&w=900&q=80",
+      "title": "The Roastery Corner",
+      "tag": "Behind the scenes",
+      "cat": "space",
+      "size": "wide",
+      "id": "wn42gpny"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=80",
+      "title": "Pour-Over Ceremony",
+      "tag": "Rituals",
+      "cat": "coffee",
+      "size": "",
+      "id": "6zqrxje0"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1530610476181-d83430b64dcd?auto=format&fit=crop&w=900&q=80",
+      "title": "Croissants at Dawn",
+      "tag": "Oven Daily",
+      "cat": "bakes",
+      "size": "tall",
+      "id": "u6mys4iu"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80",
+      "title": "Window Bar Afternoons",
+      "tag": "Atmosphere",
+      "cat": "space",
+      "size": "",
+      "id": "4a78zu1f"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=900&q=80",
+      "title": "Brunch, Unhurried",
+      "tag": "Weekends",
+      "cat": "bakes",
+      "size": "wide",
+      "id": "t5muab68"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=80",
+      "title": "Single Origin Beans",
+      "tag": "Sourcing",
+      "cat": "coffee",
+      "size": "",
+      "id": "kr02ysnf"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What makes your filter coffee extraction different?",
+      "a": "We use estate-grade Arabica and Robusta roasted in micro-lots, brewed through traditional stainless-steel and brass gravity filters. The slow, drop-by-drop extraction gives a full-bodied, low-acidity decoction with a sweeter finish.",
+      "category": "coffee",
+      "id": "2mhjry3y"
+    },
+    {
+      "q": "How is your nitro cold brew made?",
+      "a": "Our cold brew steeps for 24 hours, is filtered twice, then infused with nitrogen and served on tap. The tiny nitrogen bubbles give it a naturally creamy texture — no dairy or sugar needed.",
+      "category": "coffee",
+      "id": "fiat2j4o"
+    },
+    {
+      "q": "Can I get decaf or low-caffeine options?",
+      "a": "Yes. We keep a Swiss-water decaf on espresso, and our chicory-heavy filter blend is lower in caffeine. Just ask the barista and we will guide you.",
+      "category": "coffee",
+      "id": "e85v29tp"
+    },
+    {
+      "q": "Do I need to book a table?",
+      "a": "Walk-ins are always welcome, but weekends fill up fast. Reserve online for guaranteed seating — tables are held for 15 minutes past your booking time.",
+      "category": "visit",
+      "id": "qtljzgtp"
+    },
+    {
+      "q": "What are your opening hours?",
+      "a": "We pour Tuesday to Sunday, 7:00 AM – 10:00 PM. Mondays we are closed so our roasters can focus on the week’s fresh batches.",
+      "category": "visit",
+      "id": "so2f0ivv"
+    },
+    {
+      "q": "Is the café laptop and pet friendly?",
+      "a": "Laptops are welcome at our long communal table and window bar before 5 PM on weekends. Well-behaved dogs are welcome on the garden patio.",
+      "category": "visit",
+      "id": "vr36efci"
+    },
+    {
+      "q": "Do you host private events?",
+      "a": "Absolutely — we host intimate birthdays, tastings and small team offsites for up to 30 guests. Write to hello@mycafe.in with your date and headcount.",
+      "category": "visit",
+      "id": "dt2ifqx5"
+    },
+    {
+      "q": "Do you have dairy-free milk alternatives?",
+      "a": "Yes! We offer barista-grade oat and almond milk for all hot brews, nitro colds and lattes at no extra charge.",
+      "category": "food",
+      "id": "kmtclvnr"
+    },
+    {
+      "q": "Are there vegan or gluten-free options?",
+      "a": "Our menu marks vegan (VEGAN) and gluten-free (GF) items clearly. The cold brew, pour over and several brunch plates are naturally vegan. Please note our kitchen handles wheat, nuts and dairy.",
+      "category": "food",
+      "id": "olysim0h"
+    },
+    {
+      "q": "Is the bakery really baked fresh every day?",
+      "a": "Every morning from 4 AM. Sourdough ferments for 48 hours; croissants are laminated over three days. When a tray sells out, it sells out.",
+      "category": "food",
+      "id": "4d1kdr6z"
+    },
+    {
+      "q": "Can I purchase freshly roasted beans or ground powder?",
+      "a": "Yes, our freshly roasted whole beans and custom grinds (French Press, AeroPress, South Indian Filter, Espresso) are packed to order at the café counter in 250 g and 1 kg bags.",
+      "category": "beans",
+      "id": "uh6hnt7a"
+    },
+    {
+      "q": "Do you ship across India?",
+      "a": "We ship roasted beans pan-India within 24 hours of roasting. Orders over ₹1,200 ship free. Drop us a note via the contact page to place an order.",
+      "category": "beans",
+      "id": "e104pfu2"
+    },
+    {
+      "q": "Do you offer brewing classes?",
+      "a": "We run a monthly Slow Coffee Workshop — covering pour-over, filter coffee and milk texturing. Seats are limited; subscribe to The Slow Letter to hear first.",
+      "category": "beans",
+      "id": "q3swc6rz"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "The brass filter kaapi here tastes like my grandmother’s kitchen, if her kitchen had a design studio. I come every Sunday and I have never once been rushed.",
+      "name": "Ananya R.",
+      "role": "Architect · Regular since 2020",
+      "id": "0qmnwdqt"
+    },
+    {
+      "quote": "The sourdough alone is worth the trip. Tangy, crackling crust, and the butter is churned in-house. Add the nitro cold and it is a perfect morning.",
+      "name": "Karthik M.",
+      "role": "Food blogger",
+      "id": "fdl6rcw3"
+    },
+    {
+      "quote": "Quiet, warm, and genuinely beautiful. It is the only café where I can finish a whole chapter. The baristas remember your order, and your name.",
+      "name": "Meera S.",
+      "role": "Author & weekend regular",
+      "id": "6p8d2liv"
+    },
+    {
+      "quote": "We hosted a small birthday brunch here. The team handled everything — the Slow Brunch Board was a showstopper. Our guests are still talking about it.",
+      "name": "Rohan & Priya",
+      "role": "Private event guests",
+      "id": "uvdguhpc"
+    }
+  ],
+  "timeline": [
+    {
+      "year": "2019",
+      "title": "A tiny counter, one grinder",
+      "text": "MY.CAFÉ opens as a 12-seat counter on Artisanal Lane, serving only filter coffee and two bakes.",
+      "id": "0gjul4me"
+    },
+    {
+      "year": "2020",
+      "title": "We start roasting",
+      "text": "A second-hand roaster arrives. We begin sourcing directly from shade-grown estates in Coorg and Chikmagalur.",
+      "id": "v8wqx1ic"
+    },
+    {
+      "year": "2022",
+      "title": "The sourdough programme",
+      "text": "A 48-hour fermentation bakery opens behind the bar. The cardamom bun is born — and sells out by 10 AM.",
+      "id": "ouawba9s"
+    },
+    {
+      "year": "2024",
+      "title": "Nitro & the cold bar",
+      "text": "We install our first nitro tap and launch the Kaapi Nitro Cold, now our most-ordered drink.",
+      "id": "dtr0dvvm"
+    },
+    {
+      "year": "2026",
+      "title": "The new roastery café",
+      "text": "We expand into a light-filled two-floor space with a patio, roastery window and the Slow Brunch menu.",
+      "id": "26a8eisf"
+    }
+  ],
+  "values": [
+    {
+      "icon": "🌱",
+      "title": "Micro-Lot Sourcing",
+      "text": "Direct, fairly priced relationships with shade-grown Arabica estates in South India.",
+      "id": "ynrp0rhd"
+    },
+    {
+      "icon": "⏳",
+      "title": "Slow Extraction",
+      "text": "Gravity-filtered patience and precise temperature control in every single cup.",
+      "id": "5ggyynm0"
+    },
+    {
+      "icon": "🥖",
+      "title": "Baked at 4 AM",
+      "text": "Wild-yeast sourdough and hand-laminated pastry, baked in small batches.",
+      "id": "bwht1nk2"
+    },
+    {
+      "icon": "♻️",
+      "title": "Low-Waste Kitchen",
+      "text": "Spent grounds go to local gardens; takeaway cups are compostable.",
+      "id": "9ud5mnsj"
+    },
+    {
+      "icon": "🤝",
+      "title": "Community First",
+      "text": "A pay-it-forward wall, monthly workshops and a table for every stranger.",
+      "id": "udyzui62"
+    },
+    {
+      "icon": "✨",
+      "title": "Sensory Space",
+      "text": "A warm, moody haven designed for intimate talks and peaceful pauses.",
+      "id": "tukmzpfv"
+    }
+  ],
+  "team": [
+    {
+      "name": "Aarav Menon",
+      "role": "Founder & Head Roaster",
+      "bio": "Left a software career to chase the perfect decoction.",
+      "id": "29vdwa14"
+    },
+    {
+      "name": "Diya Krishnan",
+      "role": "Head Baker",
+      "bio": "Keeper of the 6-year-old sourdough starter, “Bhaskar”.",
+      "id": "p4y62z0m"
+    },
+    {
+      "name": "Imran Qureshi",
+      "role": "Lead Barista",
+      "bio": "Three-time regional latte-art champion. Remembers every order.",
+      "id": "79zegmuv"
+    },
+    {
+      "name": "Lakshmi Iyer",
+      "role": "Café Manager",
+      "bio": "Runs the floor, the playlists and the pay-it-forward wall.",
+      "id": "xk3yte0r"
+    }
+  ],
+  "origins": [
+    {
+      "name": "Coorg",
+      "alt": "1,100 m",
+      "note": "Shade-grown under silver oak. Bright, floral, honeyed.",
+      "id": "e9aluaiv"
+    },
+    {
+      "name": "Chikmagalur",
+      "alt": "1,300 m",
+      "note": "Birthplace of Indian coffee. Balanced, nutty, caramel.",
+      "id": "elvkvgwn"
+    },
+    {
+      "name": "Araku Valley",
+      "alt": "1,000 m",
+      "note": "Tribal-farmed Arabica. Sweet, fruity, soft acidity.",
+      "id": "ddcqojlu"
+    },
+    {
+      "name": "Wayanad",
+      "alt": "900 m",
+      "note": "Robusta in small lots. Bold, chocolatey, full-bodied.",
+      "id": "z8h449fa"
+    }
+  ],
+  "settings": {
+    "hours": {
+      "0": {
+        "closed": false,
+        "open": "07:00",
+        "close": "22:00"
+      },
+      "1": {
+        "closed": true,
+        "open": "07:00",
+        "close": "22:00"
+      },
+      "2": {
+        "closed": false,
+        "open": "07:00",
+        "close": "22:00"
+      },
+      "3": {
+        "closed": false,
+        "open": "07:00",
+        "close": "22:00"
+      },
+      "4": {
+        "closed": false,
+        "open": "07:00",
+        "close": "22:00"
+      },
+      "5": {
+        "closed": false,
+        "open": "07:00",
+        "close": "22:00"
+      },
+      "6": {
+        "closed": false,
+        "open": "07:00",
+        "close": "22:00"
+      }
+    },
+    "address": "12/4 Artisanal Lane, Heritage Block,\nOpposite Green Boulevard, Bengaluru 560001",
+    "phone": "+91 98765 43210",
+    "email": "hello@mycafe.in",
+    "closedNote": "Mondays: closed for roasting"
+  }
+}

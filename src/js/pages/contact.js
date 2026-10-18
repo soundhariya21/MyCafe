@@ -2,9 +2,11 @@
 import { gsap } from 'gsap';
 import { $, $$, escapeHtml, reducedMotion } from '../utils.js';
 import { toast } from '../components/toast.js';
+import { loadContent } from '../data/remote.js';
+import { formatTime, toDecimal } from '../site-settings.js';
 
-// Café hours by weekday (0 = Sunday) in 24h decimals; null = closed. Keep in sync with contact.html.
-const HOURS = { 0: [7, 22], 1: null, 2: [7, 22], 3: [7, 22], 4: [7, 22], 5: [7, 22], 6: [7, 22] };
+// Café hours by weekday (0 = Sunday) in 24h decimals; null = closed. Replaced by the admin-managed hours on load.
+let HOURS = { 0: [7, 22], 1: null, 2: [7, 22], 3: [7, 22], 4: [7, 22], 5: [7, 22], 6: [7, 22] };
 const SLOT_STEP = 0.5;
 
 /** "Now" in the café's own timezone, whatever the visitor's locale. */
@@ -20,7 +22,41 @@ const fmt = (h) => {
   return `${((hh + 11) % 12) + 1}:${mm} ${suffix}`;
 };
 
-export function init() {
+const DAY_ROWS = [
+  [2, 'Tuesday'],
+  [3, 'Wednesday'],
+  [4, 'Thursday'],
+  [5, 'Friday'],
+  [6, 'Saturday'],
+  [0, 'Sunday'],
+  [1, 'Monday'],
+];
+
+/** Admin settings -> { weekday: [open, close] | null } and a rebuilt hours table. */
+function applyHours(hours) {
+  HOURS = Object.fromEntries(DAY_ROWS.map(([n]) => [n, !hours[n] || hours[n].closed ? null : [toDecimal(hours[n].open), toDecimal(hours[n].close)]]));
+  const body = $('[data-hours] tbody');
+  if (!body) return;
+  body.replaceChildren(
+    ...DAY_ROWS.map(([n, label]) => {
+      const row = document.createElement('tr');
+      row.dataset.day = n;
+      const th = document.createElement('th');
+      th.textContent = label;
+      const td = document.createElement('td');
+      if (HOURS[n]) td.textContent = `${formatTime(hours[n].open, { short: false })} – ${formatTime(hours[n].close, { short: false })}`;
+      else {
+        td.textContent = 'Closed';
+        row.classList.add('is-closed');
+      }
+      row.append(th, td);
+      return row;
+    })
+  );
+}
+
+export async function init() {
+  applyHours((await loadContent()).settings.hours);
   initOpenStatus();
   initForm();
   return null;

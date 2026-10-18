@@ -18,6 +18,8 @@ import { initMagnetic, initTilt } from './components/interactions.js';
 import { initFooter, initAnchorScroll } from './components/footer.js';
 import { runIntro, initPageTransitions } from './components/loader.js';
 import { initScrollAnimations } from './animations/reveal.js';
+import { loadContent } from './data/remote.js';
+import { applySettings } from './site-settings.js';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText, Flip);
 
@@ -34,13 +36,19 @@ async function boot() {
   initAnchorScroll();
   initPageTransitions();
 
+  // Start fetching admin-managed content right away (it overlaps with font loading)
+  const contentReady = loadContent();
+
   // Wait for web-fonts so SplitText measures the real line breaks (but never hang more than 2s)
   await Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 2000))]);
+
+  // Contact details / opening hours in footer, navbar and Contact page
+  applySettings((await contentReady).settings);
 
   const loadPage = pageModules[`./pages/${document.body.dataset.page}.js`];
   const page = loadPage ? await loadPage() : null;
   // init() renders dynamic content and returns an optional enter() that plays once the intro is done
-  const enter = page?.init?.();
+  const enter = await page?.init?.();
 
   initScrollAnimations();
   initTilt();

@@ -2,19 +2,30 @@
 
 A professional, multi-page café website built with **Vite** and **GSAP**. It has six pages, a light / dark theme toggle, scroll-driven animations, a filterable menu, a photo gallery with lightbox, an accordion FAQ and a validated reservation form.
 
+## Quick start — everything on your own computer
+
 ```bash
 npm install
-npm run dev
+npm run dev:all
 ```
 
-That's it — the site opens at <http://localhost:5173>.
+That one command starts **both** parts of the project on localhost (the first run also installs the admin panel's packages automatically):
+
+| What | Address | Notes |
+| --- | --- | --- |
+| **Website** | <http://localhost:5173> | Opens in your browser automatically |
+| **Admin panel** | <http://localhost:4000> | Log in with password **`admin123`** |
+
+Open the admin, change something (a price, a photo, a FAQ…), press **Publish changes**, then refresh the website — your change is there. Press **Ctrl+C** once in the terminal to stop both. No hosting or accounts needed.
+
+Only want the website, without the admin? Use `npm run dev` instead. Full details in [Working on localhost](#working-on-localhost-website--admin).
 
 ---
 
 ## Contents
 
 1. [Features](#features)
-2. [Getting started](#getting-started)
+2. [Getting started](#getting-started) · [Working on localhost](#working-on-localhost-website--admin)
 3. [Project structure](#project-structure)
 4. [How it works](#how-it-works)
 5. [Light / dark theme](#light--dark-theme)
@@ -22,9 +33,10 @@ That's it — the site opens at <http://localhost:5173>.
 7. [Editing the content](#editing-the-content)
 8. [Adding a new page](#adding-a-new-page)
 9. [Connecting the reservation form](#connecting-the-reservation-form)
-10. [Building and deploying](#building-and-deploying)
-11. [Troubleshooting](#troubleshooting)
-12. [Credits](#credits)
+10. [Admin panel](#admin-panel-edit-the-site-without-touching-code)
+11. [Building and deploying](#building-and-deploying)
+12. [Troubleshooting](#troubleshooting)
+13. [Credits](#credits)
 
 ---
 
@@ -61,17 +73,49 @@ Site-wide:
 ### Install and run
 
 ```bash
-npm install        # installs Vite and GSAP (once)
-npm run dev        # starts the dev server with hot reload
+npm install          # installs Vite, GSAP and the other packages (once)
+npm run dev:all      # website + admin panel together  (recommended)
+npm run dev          # website only
 ```
 
 ### Scripts
 
 | Command | What it does |
 | --- | --- |
-| `npm run dev` | Dev server at `http://localhost:5173` with instant reload |
+| `npm run dev:all` | **Website + admin together** on localhost (website `:5173`, admin `:4000`). Installs the admin's packages on first run. |
+| `npm run dev` | Website only, at `http://localhost:5173`, with instant reload |
+| `npm run admin` | Admin panel only, at `http://localhost:4000` |
+| `npm run admin:install` | Installs the admin panel's packages (`dev:all` does this for you automatically) |
 | `npm run build` | Creates an optimised production build in `dist/` |
 | `npm run preview` | Serves the `dist/` build locally so you can test it before deploying |
+
+### Working on localhost (website + admin)
+
+Everything runs on your computer — nothing is uploaded anywhere.
+
+**Start**: `npm run dev:all`. You will see two coloured log streams, `admin │` and `site │`.
+
+**The workflow**
+
+1. Open the admin at <http://localhost:4000> and log in (**`admin123`** by default).
+2. Make changes — type a new price on a dish card, upload photos on the Gallery tab, edit FAQs, change opening hours…
+3. Press **Publish changes** (or Ctrl/Cmd + S). Nothing is visible on the website until you do this.
+4. Open or refresh the website at <http://localhost:5173> — the new content is there. The admin's **View site ↗** button jumps straight to it.
+
+**How the two talk to each other**: the website asks the admin server for its content each time a page loads (`VITE_CONTENT_URL` in [`.env.development`](.env.development) = `http://localhost:4000/api/content`). If the admin isn't running, the website quietly shows its built-in content, so `npm run dev` on its own always works.
+
+**Where your edits are stored**: in the folder `admin/data/` (created automatically; it is git-ignored). It contains `content.json` (all the content), `uploads/` (photos you upload) and `backups/` (a copy of the previous version each time you publish — the latest 20 are kept).
+
+| I want to… | Do this |
+| --- | --- |
+| Change the admin password | Create `admin/.env` containing `ADMIN_PASSWORD=your-password` (copy [`admin/.env.example`](admin/.env.example)), then restart `npm run dev:all`. The file is read automatically. |
+| Reset everything to the original content | Stop the servers, delete `admin/data/content.json`, start again (the original content is restored; your uploaded photos stay in `admin/data/uploads/`) |
+| Start the admin on a different port | Put `PORT=4001` in `admin/.env`, and update the address in `.env.development` to match |
+| Go back to a previous version | Copy a file from `admin/data/backups/` over `admin/data/content.json` while the servers are stopped |
+| See what the website looks like with no admin | Run `npm run dev` only (or stop the admin) — it falls back to the built-in content |
+| Make my admin changes the site's permanent built-in content | In the admin footer press **Download backup (JSON)**, then copy the values you want into `src/js/data/menu.js` / `content.js` |
+
+> Hosting later is optional and separate — see [`admin/README.md`](admin/README.md) when you get there. Until then, localhost is all you need.
 
 ---
 
@@ -87,6 +131,14 @@ MyCafe/
 ├── contact.html
 ├── vite.config.js        ← Vite config + tiny "partials" plugin
 ├── package.json
+├── .env.development      ← points the website at the local admin server (dev only)
+├── .env.example          ← how to point a built website at a hosted admin server
+├── scripts/
+│   └── dev-all.mjs       ← `npm run dev:all` — starts website + admin together
+├── admin/                ← the admin panel: its own app, own package.json (see admin/README.md)
+│   ├── server.js             login, content API, image uploads
+│   ├── public/               admin screens (same look as the website)
+│   └── data/                 YOUR edits live here (created automatically, git-ignored)
 ├── public/
 │   └── favicon.svg       ← files here are copied as-is
 └── src/
@@ -107,7 +159,8 @@ MyCafe/
         ├── animations/
         │   └── reveal.js     scroll animations driven by data-attributes
         ├── pages/            one file per page (home.js, menu.js, …)
-        └── data/             editable content (menu items, FAQs, gallery, team…)
+        └── data/             built-in content (menu, FAQs, gallery, team…) + remote.js, which
+                              fetches the admin-managed content and falls back to the built-in one
 ```
 
 ---
@@ -217,6 +270,8 @@ Want to add more? Browse <https://gsap.com/docs/v3/> and <https://gsap.com/demos
 
 Most text lives in **data files**, not HTML, so you can change content without touching layout.
 
+> **Prefer clicking to coding?** The [admin panel](#admin-panel-edit-the-site-without-touching-code) edits the same content (prices, photos, FAQs, hours…) from a web page. The data files below are the built-in fallback the site uses when no admin server is connected.
+
 | To change… | Edit |
 | --- | --- |
 | Menu items, prices, photos, tags | [`src/js/data/menu.js`](src/js/data/menu.js) |
@@ -279,6 +334,29 @@ The newsletter form in the footer ([`src/js/components/footer.js`](src/js/compon
 
 ---
 
+## Admin panel (edit the site without touching code)
+
+A separate app in [`admin/`](admin/) lets the café owner log in and manage the website's content:
+
+- **Menu** — change prices (type right on the dish card), edit dishes, add or delete them, reorder
+- **Gallery** — drag & drop photo uploads, captions, delete, reorder
+- **FAQs** — add, edit, delete, reorder
+- **Home / About / Contact** — testimonials, timeline, promises, team, coffee origins, address, phone, email, opening hours
+
+It looks like the website (same themes, sun/moon toggle, fonts and tab order), and it is its own app in its own folder, so it *can* be hosted separately later — but you don't need to: it works fully on localhost.
+
+```bash
+npm run dev:all   # website at http://localhost:5173  +  admin at http://localhost:4000  (password: admin123)
+```
+
+(Prefer two terminals? `npm run admin` in one and `npm run dev` in the other does the same thing.)
+
+Edit a price in the admin → **Publish changes** → refresh the website. The website fetches its content from `VITE_CONTENT_URL` (see [`.env.example`](.env.example)); if the admin server is unreachable it uses the last saved copy, then the content bundled in `src/js/data/`, so it never goes blank.
+
+Everything — hosting guide, environment variables, security notes, backups, API — is in **[admin/README.md](admin/README.md)**.
+
+---
+
 ## Building and deploying
 
 ```bash
@@ -302,6 +380,11 @@ npm run preview    # test the production build locally
 | Changes to a partial don't show | They trigger a full reload; if not, save the file again or restart `npm run dev` |
 | Page looks unstyled for a moment | Normal in dev mode while Vite compiles; production builds don't do this |
 | Images don't load | They are loaded from Unsplash — check your internet connection, or switch to local images in `public/images/` |
+| `npm run dev:all` says *Port 4000 is already in use* (or 5173) | An earlier copy is still running — close its terminal (or press Ctrl+C there) and start again |
+| I can't log in to the admin | Default password is `admin123`. If you created `admin/.env`, use the `ADMIN_PASSWORD` from that file. After 8 wrong tries wait 15 minutes. |
+| I published a change but the website still shows the old content | Refresh the website page. Make sure the admin is running (`npm run dev:all`). If you edited `.env.development`, restart the dev server — env files are only read at start. |
+| The browser console says *Could not reach the content server* | The admin isn't running. Harmless: the website is using its built-in content. Run `npm run dev:all` to connect them. |
+| Uploaded photos don't show on the website | Open the website through `http://localhost:5173` while the admin runs on `http://localhost:4000` — uploaded photos are served by the admin. |
 | Animations feel too much | Turn on *Reduce motion* in your OS accessibility settings — the site honours it |
 
 ---
